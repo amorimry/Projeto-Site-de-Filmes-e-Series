@@ -158,23 +158,29 @@ Escolha uma opção:
             utils.listar_filmes("assistidos", lista_filmes_assistidos)
             input("Pressione Enter para continuar...")
 
-            utils.parte2_da_lista("assistido", lista_filmes_assistidos, lista_filmes_nao_assistidos)
+            utils.parte2_da_lista_filmes("assistidos", lista_filmes_assistidos, lista_filmes_nao_assistidos)
 
         if escolha == 2:
             utils.listar_filmes("não assistidos", lista_filmes_nao_assistidos)
             input("Pressione Enter para continuar...")
 
-            utils.parte2_da_lista("não assistido", lista_filmes_assistidos, lista_filmes_nao_assistidos)
+            utils.parte2_da_lista_filmes("não assistidos", lista_filmes_assistidos, lista_filmes_nao_assistidos)
 
     elif opcao == "4":
         print("Listando séries...")
         escolha = utils.escolher_listar_assistido_ou_nao("Séries assistidas", "Séries não assistidas")
 
         if escolha == 1:
-            pass
+            utils.listar_series("assistidas", lista_series_assistidas)
+            input("Pressione Enter para continuar...")
+
+            utils.parte2_da_lista_series("assistidas", lista_series_assistidas, lista_series_nao_assistidas)
 
         if escolha == 2:
-            pass
+            utils.listar_series("não assistidas", lista_series_nao_assistidas)
+            input("Pressione Enter para continuar...")
+
+            utils.parte2_da_lista_series("não assistidas", lista_series_assistidas, lista_series_nao_assistidas)
 
     elif opcao == "0":
         input("Saindo do programa, digite Enter para confirmar...")
