@@ -115,10 +115,10 @@ Escolha uma opção:
                         sinopse=dados_da_serie["sinopse"],
                         assistido=True
                         )
-            lista_series_assistidas.append(nova_serie)
-            print(f"    Série '{dados_da_serie['titulo'].title()}' adicionada à lista de séries assistidas.")
-            print()
-            input("Pressione Enter para continuar...")
+                  lista_series_assistidas.append(nova_serie)
+                  print(f"    Série '{dados_da_serie['titulo'].title()}' adicionada à lista de séries assistidas.")
+                  print()
+                  input("Pressione Enter para continuar...")
 
             if escolha == 2:
                   dados_da_serie = utils.adicionar_serie()
@@ -140,36 +140,60 @@ Escolha uma opção:
             escolha = utils.escolher_listar_assistido_ou_nao("Filmes assistidos", "Filmes não assistidos")
             
             if escolha == 1:
-                 utils.listar_filmes("assistidos", lista_filmes_assistidos)
-                 print()
-                 input("Pressione Enter para continuar...")
-                 
-                 utils.parte2_da_lista_filmes("assistidos", lista_filmes_assistidos, lista_filmes_nao_assistidos)
+                  if len(lista_filmes_assistidos) == 0:
+                        print("\nNão há filmes assistidos na lista.")
+                        print()
+                        input("Pressione Enter para continuar...")
+                        continue
+                  else:
+                        utils.listar_filmes("assistidos", lista_filmes_assistidos)
+                        print()
+                        input("Pressione Enter para continuar...")
+                        
+                        utils.parte2_da_lista_filmes("assistidos", lista_filmes_assistidos, lista_filmes_nao_assistidos)
 
             if escolha == 2:
-                  utils.listar_filmes("não assistidos", lista_filmes_nao_assistidos)
-                  print()
-                  input("Pressione Enter para continuar...")
-
-                  utils.parte2_da_lista_filmes("não assistidos", lista_filmes_assistidos, lista_filmes_nao_assistidos)
+                  if len(lista_filmes_nao_assistidos) == 0:
+                        print("\nNão há filmes não assistidos na lista.")
+                        print()
+                        input("Pressione Enter para continuar...")
+                        continue
+                  else:
+                        utils.listar_filmes("não assistidos", lista_filmes_nao_assistidos)
+                        print()
+                        input("Pressione Enter para continuar...")
+                        
+                        utils.parte2_da_lista_filmes("não assistidos", lista_filmes_assistidos, lista_filmes_nao_assistidos)
 
       elif opcao == "4":
             print("\nListando séries...")
             escolha = utils.escolher_listar_assistido_ou_nao("Séries assistidas", "Séries não assistidas")
             
             if escolha == 1:
-                 utils.listar_series("assistidas", lista_series_assistidas)
-                 print()
-                 input("Pressione Enter para continuar...")
-                 
-                 utils.parte2_da_lista_series("assistidas", lista_series_assistidas, lista_series_nao_assistidas)
+                  if len(lista_series_assistidas) == 0:
+                        print("\nNão há séries assistidas na lista.")
+                        print()
+                        input("Pressione Enter para continuar...")
+                        continue
+                  else:
+                        utils.listar_series("assistidas", lista_series_assistidas)
+                        print()
+                        input("Pressione Enter para continuar...")
+                        
+                        utils.parte2_da_lista_series("assistidas", lista_series_assistidas, lista_series_nao_assistidas)
 
             if escolha == 2:
-                 utils.listar_series("não assistidas", lista_series_nao_assistidas)
-                 print()
-                 input("Pressione Enter para continuar...")
-                 
-                 utils.parte2_da_lista_series("não assistidas", lista_series_assistidas, lista_series_nao_assistidas)
+                  if len(lista_series_nao_assistidas) == 0:
+                        print("\nNão há séries não assistidas na lista.")
+                        print()
+                        input("Pressione Enter para continuar...")
+                        continue
+                  else:
+                        utils.listar_series("não assistidas", lista_series_nao_assistidas)
+                        print()
+                        input("Pressione Enter para continuar...")
+                        
+                        utils.parte2_da_lista_series("não assistidas", lista_series_assistidas, lista_series_nao_assistidas)
 
       elif opcao == "0":
             print()
