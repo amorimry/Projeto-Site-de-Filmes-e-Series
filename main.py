@@ -67,11 +67,10 @@ lista_series_nao_assistidas = [
           "Luffy reúne sua tripulação em busca do One Piece.", False)
 ]
 
-print(f"""
-{"="*5} Bem vindo ao seu site de organização de filmes e séries! {"="*5}
-""")
+print()
+print(f"{"="*5} Bem vindo ao seu site de organização de filmes e séries! {"="*5}")
 while True:
-    print("""
+      print("""
     -- MENU --
 
 Escolha uma opção:
@@ -83,60 +82,65 @@ Escolha uma opção:
 
     0 - Sair
     """)
-    opcao = input("Digite o número da opção desejada: ")
+      opcao = input("Digite o número da opção desejada: ")
 
-    if opcao == "1":
-        print("\nAdicionando um novo filme...")
+      if opcao == "1":
+            print("\n   Adicionando um novo filme...")
+            print()
+            escolha = utils.escolher_assistido_ou_nao("Filme assistido", "Filme não assistido")
+            print()
+            if escolha == 1:
+                  dados_do_filme = utils.adicionar_filme()
+                  novo_filme = Filme(
+                        titulo=dados_do_filme["titulo"],
+                        ano=dados_do_filme["ano"],
+                        duracao=dados_do_filme["duracao"],
+                        genero=dados_do_filme["genero"],
+                        sinopse=dados_do_filme["sinopse"],
+                        assistido=True
+                  )
+                  lista_filmes_assistidos.append(novo_filme)
+                  print()
+                  print(f"    Filme '{dados_do_filme['titulo'].title()}' adicionado à lista de filmes assistidos.")
+                  print()
+                  input("Pressione Enter para continuar...")
 
-        escolha = utils.escolher_assistido_ou_nao("Filme assistido", "Filme não assistido")
+            if escolha == 2:
+                  dados_do_filme = utils.adicionar_filme()
+                  novo_filme = Filme(
+                        titulo=dados_do_filme["titulo"],
+                        ano=dados_do_filme["ano"],
+                        duracao=dados_do_filme["duracao"],
+                        genero=dados_do_filme["genero"],
+                        sinopse=dados_do_filme["sinopse"],
+                        assistido=False
+                  )
+                  lista_filmes_nao_assistidos.append(novo_filme)
+                  print(f"    Filme '{dados_do_filme['titulo'].title()}' adicionado à lista de filmes não assistidos.")
+                  print()
+                  input("Pressione Enter para continuar...")
 
-        if escolha == 1:
-            dados_do_filme = utils.adicionar_filme()
-            novo_filme = Filme(
-                titulo=dados_do_filme["titulo"],
-                ano=dados_do_filme["ano"],
-                duracao=dados_do_filme["duracao"],
-                genero=dados_do_filme["genero"],
-                sinopse=dados_do_filme["sinopse"],
-                assistido=True
-            )
-            lista_filmes_assistidos.append(novo_filme)
-            print(f"Filme '{dados_do_filme['titulo'].title()}' adicionado à lista de filmes assistidos.")
-            input("Pressione Enter para continuar...")
-
-        if escolha == 2:
-            dados_do_filme = utils.adicionar_filme()
-            novo_filme = Filme(
-                titulo=dados_do_filme["titulo"],
-                ano=dados_do_filme["ano"],
-                duracao=dados_do_filme["duracao"],
-                genero=dados_do_filme["genero"],
-                sinopse=dados_do_filme["sinopse"],
-                assistido=False
-            )
-            lista_filmes_nao_assistidos.append(novo_filme)
-            print(f"Filme '{dados_do_filme['titulo'].title()}' adicionado à lista de filmes não assistidos.")
-            input("Pressione Enter para continuar...")
-
-    elif opcao == "2":
-        print("\nAdicionando uma nova série...")
-        escolha = utils.escolher_assistido_ou_nao("Série assistida", "Série não assistida")
-
-        if escolha == 1:
-            dados_da_serie = utils.adicionar_serie()
-            nova_serie = Serie(
-                titulo=dados_da_serie["titulo"],
-                ano=dados_da_serie["ano"],
-                temporadas=dados_da_serie["temporadas"],
-                genero=dados_da_serie["genero"],
-                sinopse=dados_da_serie["sinopse"],
-                assistido=True
-            )
+      elif opcao == "2":
+            print("\nAdicionando uma nova série...")
+            print()
+            escolha = utils.escolher_assistido_ou_nao("Série assistida", "Série não assistida")
+            print()
+            if escolha == 1:
+                  dados_da_serie = utils.adicionar_serie()
+                  nova_serie = Serie(
+                        titulo=dados_da_serie["titulo"],
+                        ano=dados_da_serie["ano"],
+                        temporadas=dados_da_serie["temporadas"],
+                        genero=dados_da_serie["genero"],
+                        sinopse=dados_da_serie["sinopse"],
+                        assistido=True
+                  )
             lista_series_assistidas.append(nova_serie)
-            print(f"Série '{dados_da_serie['titulo'].title()}' adicionada à lista de séries assistidas.")
+            print(f"    Série '{dados_da_serie['titulo'].title()}' adicionada à lista de séries assistidas.")
+            print()
             input("Pressione Enter para continuar...")
 
-        if escolha == 2:
+      if escolha == 2:
             dados_da_serie = utils.adicionar_serie()
             nova_serie = Serie(
                 titulo=dados_da_serie["titulo"],
@@ -147,26 +151,27 @@ Escolha uma opção:
                 assistido=False
             )
             lista_series_nao_assistidas.append(nova_serie)
-            print(f"Série '{dados_da_serie['titulo'].title()}' adicionada à lista de séries não assistidas.")
+            print(f"    Série '{dados_da_serie['titulo'].title()}' adicionada à lista de séries não assistidas.")
+            print()
             input("Pressione Enter para continuar...")
 
-    elif opcao == "3":
-        print("\nListando filmes...")
-        escolha = utils.escolher_listar_assistido_ou_nao("Filmes assistidos", "Filmes não assistidos")
-
-        if escolha == 1:
+      elif opcao == "3":
+            print("\nListando filmes...")
+            escolha = utils.escolher_listar_assistido_ou_nao("Filmes assistidos", "Filmes não assistidos")
+            print()
+            if escolha == 1:
             utils.listar_filmes("assistidos", lista_filmes_assistidos)
             input("Pressione Enter para continuar...")
 
             utils.parte2_da_lista_filmes("assistidos", lista_filmes_assistidos, lista_filmes_nao_assistidos)
 
-        if escolha == 2:
+            if escolha == 2:
             utils.listar_filmes("não assistidos", lista_filmes_nao_assistidos)
             input("Pressione Enter para continuar...")
 
             utils.parte2_da_lista_filmes("não assistidos", lista_filmes_assistidos, lista_filmes_nao_assistidos)
 
-    elif opcao == "4":
+      elif opcao == "4":
         print("Listando séries...")
         escolha = utils.escolher_listar_assistido_ou_nao("Séries assistidas", "Séries não assistidas")
 
@@ -182,9 +187,9 @@ Escolha uma opção:
 
             utils.parte2_da_lista_series("não assistidas", lista_series_assistidas, lista_series_nao_assistidas)
 
-    elif opcao == "0":
+      elif opcao == "0":
         input("Saindo do programa, digite Enter para confirmar...")
         break
 
-    else:
+      else:
         print("Opção inválida. Por favor, tente novamente.")
