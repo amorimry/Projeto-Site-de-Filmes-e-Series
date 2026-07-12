@@ -3,7 +3,8 @@ from classes import Filme, Serie
 def escolher_assistido_ou_nao(complemento1, complemento2):
     while True:
         try:
-            escolha = int(input(f"""O que você deseja adicionar?
+            escolha = int(input(f"""
+O que você deseja adicionar?
                             
     1. {complemento1}
     2. {complemento2}
@@ -21,8 +22,9 @@ def escolher_assistido_ou_nao(complemento1, complemento2):
 def escolher_listar_assistido_ou_nao(complemento1, complemento2):
     while True:
         try:
-            escolha = int(input(f"""O que você deseja listar?
-                        
+            escolha = int(input(f"""
+O que você deseja listar?
+                            
     1. {complemento1}
     2. {complemento2}
 
@@ -32,7 +34,7 @@ def escolher_listar_assistido_ou_nao(complemento1, complemento2):
             else:
                 print("Opção inválida. Por favor, digite 1 ou 2.")
         except ValueError:
-                print("Opção inválida. Por favor, digite 1 ou 2.")
+            print("Opção inválida. Por favor, digite 1 ou 2.")
 
 #-------------------------------------------------------------------------
 
@@ -147,12 +149,13 @@ def listar_series(ass_sim_nao, lista):
 def parte2_da_lista_filmes(ass_sim_nao, lista_filmes_assistidos, lista_filmes_nao_assistidos):
     if ass_sim_nao == "assistidos":
         while True:
-            op = input(f"""O que deseja fazer agora?
+            op = input(f"""
+O que deseja fazer agora?
 
-        1 - Voltar ao menu principal
-        2 - Ver informações detalhadas de um filme
-        3 - Marcar um filme como não assistido
-    --> """)
+    1 - Voltar ao menu principal
+    2 - Ver informações detalhadas de um filme
+    3 - Marcar um filme como não assistido
+--> """)
             if op == "1":
                 input("Pressione Enter para continuar...")
                 return
@@ -191,12 +194,13 @@ def parte2_da_lista_filmes(ass_sim_nao, lista_filmes_assistidos, lista_filmes_na
 
     if ass_sim_nao == "não assistidos":
         while True:
-            op = input(f"""O que deseja fazer agora?
+            op = input(f"""
+O que deseja fazer agora?
 
-        1 - Voltar ao menu principal
-        2 - Ver informações detalhadas de um filme
-        3 - Marcar um filme como assistido
-    --> """)
+    1 - Voltar ao menu principal
+    2 - Ver informações detalhadas de um filme
+    3 - Marcar um filme como assistido
+--> """)
             if op == "1":
                 input("Pressione Enter para continuar...")
                 return
@@ -236,12 +240,13 @@ def parte2_da_lista_filmes(ass_sim_nao, lista_filmes_assistidos, lista_filmes_na
 def parte2_da_lista_series(ass_sim_nao, lista_series_assistidas, lista_series_nao_assistidas):
     if ass_sim_nao == "assistidas":
         while True:
-            op = input(f"""O que deseja fazer agora?
+            op = input(f"""
+O que deseja fazer agora?
 
-        1 - Voltar ao menu principal
-        2 - Ver informações detalhadas de uma série
-        3 - Marcar uma série como não assistida
-    --> """)
+    1 - Voltar ao menu principal
+    2 - Ver informações detalhadas de uma série
+    3 - Marcar uma série como não assistida
+--> """)
             if op == "1":
                 input("Pressione Enter para continuar...")
                 return
@@ -280,12 +285,13 @@ def parte2_da_lista_series(ass_sim_nao, lista_series_assistidas, lista_series_na
 
     if ass_sim_nao == "não assistidas":
         while True:
-            op = input(f"""O que deseja fazer agora?
+            op = input(f"""
+O que deseja fazer agora?
 
-        1 - Voltar ao menu principal
-        2 - Ver informações detalhadas de uma série
-        3 - Marcar uma série como assistida
-    --> """)
+    1 - Voltar ao menu principal
+    2 - Ver informações detalhadas de uma série
+    3 - Marcar uma série como assistida
+--> """)
             if op == "1":
                 input("Pressione Enter para continuar...")
                 return

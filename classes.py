@@ -14,8 +14,7 @@ Duração: {self.duracao} minutos
 Sinopse: {self.sinopse}
 
 Assistido: {"Sim" if self.assistido else "Não"}
-""")
-        
+""") 
 
 class Serie():
     def __init__(self, titulo, ano, temporadas, genero, sinopse, assistido):
