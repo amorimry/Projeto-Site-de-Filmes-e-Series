@@ -359,3 +359,19 @@ O que deseja fazer agora?
             else:
                 print()
                 print("❌ Opção inválida. Por favor, digite 1, 2 ou 3. ❌")
+
+#-------------------------------------------------------------------------
+
+def editar_filme(lista_de_filmes):
+    while True:
+        try:
+            op = int(input("Digite o número do filmes que deseja editar: "))
+            op = op - 1
+            print("Editando o filme abaixo...")
+            lista_de_filmes[op].exibir_filme()
+            print("Digite Enter para manter o dado já salvo.")
+            novo_titulo = input("Digite o novo título do filme: ")
+            novo_ano = input("Digite o novo ano do filme: ")
+            novo_genero = input("Digite")
+        except ValueError:
+            pass
