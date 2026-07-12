@@ -8,7 +8,6 @@ O que você deseja adicionar?
                             
     1. {complemento1}
     2. {complemento2}
-
 --> """))
             if escolha in [1, 2]:
                 return escolha
@@ -27,7 +26,6 @@ O que você deseja listar?
                             
     1. {complemento1}
     2. {complemento2}
-
 --> """))
             if escolha in [1, 2]:
                 return escolha
@@ -157,40 +155,47 @@ O que deseja fazer agora?
     3 - Marcar um filme como não assistido
 --> """)
             if op == "1":
+                print()
                 input("Pressione Enter para continuar...")
                 return
             elif op == "2":
                 while True:
                     try:
+                        print()
                         op2 = int(input("Digite o número do filme que deseja ver as informações detalhadas: "))
                         op2 = op2 - 1
                         if op2 < 0 or op2 >= len(lista_filmes_assistidos):
-                            print("Número inválido. Por favor, digite um número válido.")
+                            print("❌ Número inválido. Por favor, digite um número válido. ❌")
                             continue
                         else:
                             lista_filmes_assistidos[op2].exibir_filme()
                             input("Pressione Enter para continuar...")
                             break
                     except ValueError:
-                        print("Número inválido. Por favor, digite um número válido.")
+                        print()
+                        print("❌ Número inválido. Por favor, digite um número válido. ❌")
             elif op == "3":
                 while True:
                     try:
+                        print()
                         op3 = int(input(f"Digite o número do filme que deseja marcar como não assistido: "))
                         op3 = op3 - 1
                         if op3 < 0 or op3 >= len(lista_filmes_assistidos):
-                            print("Número inválido. Por favor, digite um número válido.")
+                            print("❌ Número inválido. Por favor, digite um número válido. ❌")
                             continue
                         else:
                             filme = lista_filmes_assistidos.pop(op3)
                             filme.assistido = False
                             lista_filmes_nao_assistidos.append(filme)
+                            print()
                             print(f"Filme '{filme.titulo}' marcado como não assistido.")
                             break
                     except ValueError:
-                        print("Número inválido. Por favor, digite um número válido.")
+                        print()
+                        print("❌ Número inválido. Por favor, digite um número válido. ❌")
             else:
-                print("Opção inválida. Por favor, digite 1, 2 ou 3.")
+                print()
+                print("❌ Opção inválida. Por favor, digite 1, 2 ou 3. ❌")
 
     if ass_sim_nao == "não assistidos":
         while True:
@@ -202,40 +207,49 @@ O que deseja fazer agora?
     3 - Marcar um filme como assistido
 --> """)
             if op == "1":
+                print()
                 input("Pressione Enter para continuar...")
                 return
             elif op == "2":
                 while True:
                     try:
+                        print()
                         op2 = int(input("Digite o número do filme que deseja ver as informações detalhadas: "))
                         op2 = op2 - 1
-                        if op2 < 0 or op2 >= len(lista_filmes_assistidos):
-                            print("Número inválido. Por favor, digite um número válido.")
+                        if op2 < 0 or op2 >= len(lista_filmes_nao_assistidos):
+                            print()
+                            print("❌ Número inválido. Por favor, digite um número válido. ❌")
                             continue
                         else:
-                            lista_filmes_assistidos[op2].exibir_filme()
+                            lista_filmes_nao_assistidos[op2].exibir_filme()
                             input("Pressione Enter para continuar...")
                             break
                     except ValueError:
-                        print("Número inválido. Por favor, digite um número válido.")
+                        print()
+                        print("❌ Número inválido. Por favor, digite um número válido. ❌")
             elif op == "3":
                 while True:
                     try:
+                        print()
                         op3 = int(input(f"Digite o número do filme que deseja marcar como assistido: "))
                         op3 = op3 - 1
                         if op3 < 0 or op3 >= len(lista_filmes_nao_assistidos):
-                            print("Número inválido. Por favor, digite um número válido.")
+                            print()
+                            print("❌ Número inválido. Por favor, digite um número válido. ❌")
                             continue
                         else:
                             filme = lista_filmes_nao_assistidos.pop(op3)
                             filme.assistido = True
                             lista_filmes_assistidos.append(filme)
+                            print()
                             print(f"Filme '{filme.titulo}' marcado como assistido.")
                             break
                     except ValueError:
-                        print("Número inválido. Por favor, digite um número válido.")
+                        print()
+                        print("❌ Número inválido. Por favor, digite um número válido. ❌")
             else:
-                print("Opção inválida. Por favor, digite 1, 2 ou 3.")
+                print()
+                print("❌ Opção inválida. Por favor, digite 1, 2 ou 3. ❌")
 
 def parte2_da_lista_series(ass_sim_nao, lista_series_assistidas, lista_series_nao_assistidas):
     if ass_sim_nao == "assistidas":
@@ -248,40 +262,49 @@ O que deseja fazer agora?
     3 - Marcar uma série como não assistida
 --> """)
             if op == "1":
+                print()
                 input("Pressione Enter para continuar...")
                 return
             elif op == "2":
                 while True:
                     try:
+                        print()
                         op2 = int(input("Digite o número da série que deseja ver as informações detalhadas: "))
                         op2 = op2 - 1
                         if op2 < 0 or op2 >= len(lista_series_assistidas):
-                            print("Número inválido. Por favor, digite um número válido.")
+                            print()
+                            print("❌ Número inválido. Por favor, digite um número válido. ❌")
                             continue
                         else:
                             lista_series_assistidas[op2].exibir_serie()
                             input("Pressione Enter para continuar...")
                             break
                     except ValueError:
-                        print("Número inválido. Por favor, digite um número válido.")
+                        print()
+                        print("❌ Número inválido. Por favor, digite um número válido. ❌")
             elif op == "3":
                 while True:
                     try:
+                        print()
                         op3 = int(input(f"Digite o número da série que deseja marcar como não assistida: "))
                         op3 = op3 - 1
-                        if op3 < 0 or op3 > len(lista_series_assistidas):
-                            print("Número inválido. Por favor, digite um número válido.")
+                        if op3 < 0 or op3 >= len(lista_series_assistidas):
+                            print()
+                            print("❌ Número inválido. Por favor, digite um número válido. ❌")
                             continue
                         else:
                             serie = lista_series_assistidas.pop(op3)
                             serie.assistido = False
                             lista_series_nao_assistidas.append(serie)
+                            print()
                             print(f"Série '{serie.titulo}' marcada como não assistida.")
                             break
                     except ValueError:
-                        print("Número inválido. Por favor, digite um número válido.")
+                        print()
+                        print("❌ Número inválido. Por favor, digite um número válido. ❌")
             else:
-                print("Opção inválida. Por favor, digite 1, 2 ou 3.")
+                print()
+                print("❌ Opção inválida. Por favor, digite 1, 2 ou 3.")
 
     if ass_sim_nao == "não assistidas":
         while True:
@@ -293,37 +316,46 @@ O que deseja fazer agora?
     3 - Marcar uma série como assistida
 --> """)
             if op == "1":
+                print()
                 input("Pressione Enter para continuar...")
                 return
             elif op == "2":
                 while True:
                     try:
+                        print()
                         op2 = int(input("Digite o número da série que deseja ver as informações detalhadas: "))
                         op2 = op2 - 1
                         if op2 < 0 or op2 >= len(lista_series_nao_assistidas):
-                            print("Número inválido. Por favor, digite um número válido.")
+                            print()
+                            print("❌ Número inválido. Por favor, digite um número válido. ❌")
                             continue
                         else:
                             lista_series_nao_assistidas[op2].exibir_serie()
                             input("Pressione Enter para continuar...")
                             break
                     except ValueError:
-                        print("Número inválido. Por favor, digite um número válido.")
+                        print()
+                        print("❌ Número inválido. Por favor, digite um número válido. ❌")
             elif op == "3":
                 while True:
                     try:
+                        print()
                         op3 = int(input(f"Digite o número da série que deseja marcar como assistida: "))
                         op3 = op3 - 1
                         if op3 < 0 or op3 >= len(lista_series_nao_assistidas):
-                            print("Número inválido. Por favor, digite um número válido.")
+                            print()
+                            print("❌ Número inválido. Por favor, digite um número válido. ❌")
                             continue
                         else:
                             serie = lista_series_nao_assistidas.pop(op3)
                             serie.assistido = True
                             lista_series_assistidas.append(serie)
+                            print()
                             print(f"Série '{serie.titulo}' marcada como assistida.")
                             break
                     except ValueError:
-                        print("Número inválido. Por favor, digite um número válido.")
+                        print()
+                        print("❌ Número inválido. Por favor, digite um número válido. ❌")
             else:
-                print("Opção inválida. Por favor, digite 1, 2 ou 3.")
+                print()
+                print("❌ Opção inválida. Por favor, digite 1, 2 ou 3. ❌")

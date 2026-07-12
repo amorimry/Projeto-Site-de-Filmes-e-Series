@@ -5,15 +5,19 @@ class Filme():
         self.duracao = duracao
         self.genero = genero
         self.sinopse = sinopse
-        self.assistido = False
+        self.assistido = assistido
 
     def exibir_filme(self):
         print(f"""
+*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
+
 {self.titulo} ({self.ano}) - {self.genero}
 Duração: {self.duracao} minutos
 Sinopse: {self.sinopse}
 
 Assistido: {"Sim" if self.assistido else "Não"}
+
+*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
 """) 
 
 class Serie():
@@ -23,13 +27,17 @@ class Serie():
         self.temporadas = temporadas
         self.genero = genero
         self.sinopse = sinopse
-        self.assistido = False
+        self.assistido = assistido
 
     def exibir_serie(self):
         print(f"""
+*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
+
 {self.titulo} ({self.ano}) - {self.genero}
 Duração: {self.temporadas} temporadas
 Sinopse: {self.sinopse}
 
 Assistido: {"Sim" if self.assistido else "Não"}
+
+*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
 """)
