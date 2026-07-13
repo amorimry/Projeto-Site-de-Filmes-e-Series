@@ -305,6 +305,27 @@ Escolha uma opção:
       elif opcao == "7":
             print("\n   Removendo filme...")
 
+            escolha = utils.escolher_assistido_ou_nao("Filme assistido", "Filme não assistido")
+
+            if escolha == 1:
+                  if len(lista_filmes_assistidos) == 0:
+                        print("\nNão há filmes assistidos na lista.")
+                        print()
+                        input("Pressione Enter para continuar...")
+                        continue
+                  else:
+                        while True:
+                              pass
+            if escolha == 2:
+                  if len(lista_filmes_nao_assistidos) == 0:
+                        print("\nNão há filmes não assistidos na lista.")
+                        print()
+                        input("Pressione Enter para continuar...")
+                        continue
+                  else:
+                        while True:
+                              pass
+            
       elif opcao == "8":
             print("\n   Removendo série...")
 

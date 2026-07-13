@@ -547,3 +547,11 @@ O que você gostaria de editar?
 
         print("\n✅ Série atualizada com sucesso!")
         serie.exibir_serie()
+
+#-------------------------------------------------------------------------
+
+def remover_filme():
+    pass
+
+def remover_serie():
+    pass
