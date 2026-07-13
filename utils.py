@@ -379,12 +379,16 @@ def editar_filme(lista_filmes):
         try:
             op = int(input("Digite o número do filme que deseja editar: "))
             op = op - 1
+            if op < 0 or op >= len(lista_filmes):
+                print("❌ Número inválido. Digite um número válido.")
+                continue
             break
         except ValueError:
             print("Valor inválido, digite novamente.")
+    filme = lista_filmes[op]
     while True:
-        print("Editando filme abaixo...")
-        lista_filmes[op].exibir_filme()
+        print("\nEditando filme abaixo...")
+        filme.exibir_filme()
         op2 = input("""
 O que você gostaria de editar?
     1. Título
@@ -395,15 +399,74 @@ O que você gostaria de editar?
 --> """)
         match op2:
             case "1":
-                print("Editando Título do filme...")
+                while True:
+                    novo_titulo = input("Digite o novo título do filme: ")
+                    if novo_titulo.strip() == "":
+                        print("O título não pode estar vazio.")
+                        continue
+                    else:
+                        print(f"Novo título atualizado para '{novo_titulo}'")
+                        filme.titulo = novo_titulo.title()
+                    break
             case "2":
-                print("Editando Ano do filme...")
+                while True:
+                    try:
+                        novo_ano = int(input("Digite o novo ano de lançamento do filme: "))
+                        if novo_ano < 1895 or novo_ano > 2026:
+                            print("Ano inválido. Digite novamente.")
+                            continue
+                        else:
+                            print(f"Novo ano atualizado para '{novo_ano}'")
+                            filme.ano = novo_ano
+                            break
+                    except ValueError:
+                        print("Ano inválido. Digite um número inteiro válido.")
             case "3":
-                print()
+                while True:
+                    try:
+                        nova_duracao = int(input("Digite a nova duração do filme: "))
+                        if nova_duracao < 1 or nova_duracao > 240:
+                            print("Duração inválida. Digite uma minutagem válida.")
+                            continue
+                        else:
+                            print(f"Nova duração atualizado para '{nova_duracao}'")
+                            filme.duracao = nova_duracao
+                            break
+                    except ValueError:
+                        print("Duração inválida. Digite um número inteiro válido.")
             case "4":
-                pass
+                while True:
+                    novo_genero = input("Digite o novo gênero do filme: ")
+                    if novo_genero.strip() == "":
+                        print("O gênero não pode estar vazio.")
+                        continue
+                    else:
+                        print(f"Novo gênero atualizado para '{novo_genero}'")
+                        filme.genero = novo_genero.title()
+                        break
             case "5":
-                pass
+                while True:
+                    nova_sinopse = input("Digite a nova sinopse do filme: ")
+                    if nova_sinopse.strip() == "":
+                        print("A sinopse não pode estar vazia.")
+                        continue
+                    else:
+                        print(f"Nova sinopse atualizada para '{nova_sinopse}'")
+                    filme.sinopse = nova_sinopse.title()
+                    break
             case _:
-                print("Opção inválida, digite novamente.")
+                print("Opção inválida. Digite novamente.")
                 continue
+
+        print("\n✅ Filme atualizado com sucesso!")
+        filme.exibir_filme()
+
+        while True:
+            continuar = input("\nDeseja editar outro campo? (s/n): ").strip().lower()
+            if continuar in ["s", "sim"]:
+                break
+            elif continuar in ["n", "nao", "não"]:
+                input("Pressione Enter para voltar ao menu...")
+                return
+            else:
+                print("Entrada inválida. Digite 's' ou 'n'.")
