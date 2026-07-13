@@ -45,19 +45,25 @@ def adicionar_filme():
         else:
             break
     while True:
-        ano = input("Digite o ano de lançamento do filme: ")
-        if not ano.isdigit() or len(ano) != 4:
+        try:
+            ano = int(input("Digite o ano de lançamento do filme: "))
+            if ano < 1895 or ano > 2026:
+                print("Ano inválido. Por favor, digite um ano válido com 4 dígitos.")
+                continue
+            else:
+                break
+        except ValueError:
             print("Ano inválido. Por favor, digite um ano válido com 4 dígitos.")
-            continue
-        else:
-            break
     while True:
-        duracao = input("Digite a duração do filme (em minutos): ")
-        if not duracao.isdigit():
+        try:
+            duracao = int(input("Digite a duração do filme (em minutos): "))
+            if duracao < 1 or duracao > 240:
+                print("Duração inválida. Por favor, digite um número válido.")
+                continue
+            else:
+                break
+        except ValueError:
             print("Duração inválida. Por favor, digite um número válido.")
-            continue
-        else:
-            break
     while True:
         genero = input("Digite o gênero do filme: ")
         if genero.strip() == "":
@@ -90,19 +96,25 @@ def adicionar_serie():
         else:
             break
     while True:
-        ano = input("Digite o ano de lançamento da série: ")
-        if not ano.isdigit() or len(ano) != 4:
+        try:
+            ano = int(input("Digite o ano de lançamento da série: "))
+            if ano < 1895 or ano > 2026:
+                print("Ano inválido. Por favor, digite um ano válido com 4 dígitos.")
+                continue
+            else:
+                break
+        except ValueError:
             print("Ano inválido. Por favor, digite um ano válido com 4 dígitos.")
-            continue
-        else:
-            break
     while True:
-        temporadas = input("Digite o número de temporadas da série: ")
-        if not temporadas.isdigit():
+        try:
+            temporadas = int(input("Digite o número de temporadas da série: "))
+            if temporadas < 1:
+                print("Número de temporadas inválido. Por favor, digite um número válido.")
+                continue
+            else:
+                break
+        except ValueError:
             print("Número de temporadas inválido. Por favor, digite um número válido.")
-            continue
-        else:
-            break
     while True:
         genero = input("Digite o gênero da série: ")
         if genero.strip() == "":
