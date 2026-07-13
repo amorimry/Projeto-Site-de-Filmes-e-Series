@@ -5,7 +5,7 @@ def escolher_assistido_ou_nao(complemento1, complemento2):
         try:
             escolha = int(input(f"""
 O que você deseja adicionar?
-                            
+
     1. {complemento1}
     2. {complemento2}
 --> """))
@@ -23,7 +23,7 @@ def escolher_listar_assistido_ou_nao(complemento1, complemento2):
         try:
             escolha = int(input(f"""
 O que você deseja listar?
-                            
+
     1. {complemento1}
     2. {complemento2}
 --> """))
@@ -374,16 +374,36 @@ O que deseja fazer agora?
 
 #-------------------------------------------------------------------------
 
-def editar_filme(lista_de_filmes):
+def editar_filme(lista_filmes):
     while True:
         try:
-            op = int(input("Digite o número do filmes que deseja editar: "))
+            op = int(input("Digite o número do filme que deseja editar: "))
             op = op - 1
-            print("Editando o filme abaixo...")
-            lista_de_filmes[op].exibir_filme()
-            print("Digite Enter para manter o dado já salvo.")
-            novo_titulo = input("Digite o novo título do filme: ")
-            novo_ano = input("Digite o novo ano do filme: ")
-            novo_genero = input("Digite")
+            break
         except ValueError:
-            pass
+            print("Valor inválido, digite novamente.")
+    while True:
+        print("Editando filme abaixo...")
+        lista_filmes[op].exibir_filme()
+        op2 = input("""
+O que você gostaria de editar?
+    1. Título
+    2. Ano
+    3. Duração
+    4. Gênero
+    5. Sinopse
+--> """)
+        match op2:
+            case "1":
+                print("Editando Título do filme...")
+            case "2":
+                print("Editando Ano do filme...")
+            case "3":
+                print()
+            case "4":
+                pass
+            case "5":
+                pass
+            case _:
+                print("Opção inválida, digite novamente.")
+                continue
