@@ -452,8 +452,8 @@ O que você gostaria de editar?
                         continue
                     else:
                         print(f"Nova sinopse atualizada para '{nova_sinopse}'")
-                    filme.sinopse = nova_sinopse.title()
-                    break
+                        filme.sinopse = nova_sinopse.title()
+                        break
             case _:
                 print("Opção inválida. Digite novamente.")
                 continue
@@ -461,12 +461,89 @@ O que você gostaria de editar?
         print("\n✅ Filme atualizado com sucesso!")
         filme.exibir_filme()
 
-        while True:
-            continuar = input("\nDeseja editar outro campo? (s/n): ").strip().lower()
-            if continuar in ["s", "sim"]:
-                break
-            elif continuar in ["n", "nao", "não"]:
-                input("Pressione Enter para voltar ao menu...")
-                return
-            else:
-                print("Entrada inválida. Digite 's' ou 'n'.")
+def editar_serie(lista_series):
+    while True:
+        try:
+            op = int(input("Digite o número da série que deseja editar: "))
+            op = op - 1
+            if op < 0 or op >= len(lista_series):
+                print("❌ Número inválido. Digite um número válido.")
+                continue
+            break
+        except ValueError:
+            print("Valor inválido, digite novamente.")
+    serie = lista_series[op]
+    while True:
+        print("\nEditando série abaixo...")
+        serie.exibir_serie()
+        op2 = input("""
+O que você gostaria de editar?
+    1. Título
+    2. Ano
+    3. Temporadas
+    4. Gênero
+    5. Sinopse
+--> """)
+        match op2:
+            case "1":
+                while True:
+                    novo_titulo = input("Digite o novo título da série: ")
+                    if novo_titulo.strip() == "":
+                        print("O título não pode estar vazio.")
+                        continue
+                    else:
+                        print(f"Novo título atualizado para '{novo_titulo}'")
+                        serie.titulo = novo_titulo.title()
+                    break
+            case "2":
+                while True:
+                    try:
+                        novo_ano = int(input("Digite o novo ano de lançamento da série: "))
+                        if novo_ano < 1895 or novo_ano > 2026:
+                            print("Ano inválido. Digite novamente.")
+                            continue
+                        else:
+                            print(f"Novo ano atualizado para '{novo_ano}'")
+                            serie.ano = novo_ano
+                            break
+                    except ValueError:
+                        print("Ano inválido. Digite um número inteiro válido.")
+            case "3":
+                while True:
+                    try:
+                        nova_duracao = int(input("Digite a nova duração da série: "))
+                        if nova_duracao < 1 or nova_duracao > 240:
+                            print("Duração inválida. Digite uma minutagem válida.")
+                            continue
+                        else:
+                            print(f"Nova duração atualizado para '{nova_duracao}'")
+                            serie.duracao = nova_duracao
+                            break
+                    except ValueError:
+                        print("Duração inválida. Digite um número inteiro válido.")
+            case "4":
+                while True:
+                    novo_genero = input("Digite o novo gênero da série: ")
+                    if novo_genero.strip() == "":
+                        print("O gênero não pode estar vazio.")
+                        continue
+                    else:
+                        print(f"Novo gênero atualizado para '{novo_genero}'")
+                        serie.genero = novo_genero.title()
+                        break
+            case "5":
+                while True:
+                    nova_sinopse = input("Digite a nova sinopse da série: ")
+                    if nova_sinopse.strip() == "":
+                        print("A sinopse não pode estar vazia.")
+                        continue
+                    else:
+                        print(f"Nova sinopse atualizada para '{nova_sinopse}'")
+                        serie.sinopse = nova_sinopse.title()
+                        break
+            case _:
+                print("Opção inválida. Digite novamente.")
+                continue
+
+        print("\n✅ Série atualizada com sucesso!")
+        serie.exibir_serie()

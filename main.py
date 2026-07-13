@@ -59,10 +59,10 @@ Escolha uma opção:
       2 - Adicionar série
       3 - Listar filmes
       4 - Listar séries
-      
-      -- NÃO FUNCIONANDO AINDA --
       5 - Editar filme
       6 - Editar série
+      
+      -- NÃO FUNCIONANDO AINDA --
       7 - Remover filme
       8 - Remover série
 
@@ -213,12 +213,21 @@ Escolha uma opção:
                         input("Pressione Enter para continuar...")
                         continue
                   else:
-                        utils.listar_filmes("assistidos", lista_filmes_assistidos)
-                        print()
-                        input("Pressione Enter para continuar...")
-                        print()
-                        utils.editar_filme(lista_filmes_assistidos)
+                        while True:
+                              utils.listar_filmes("assistidos", lista_filmes_assistidos)
+                              print()
+                              input("Pressione Enter para continuar...")
+                              print()
+                              utils.editar_filme(lista_filmes_assistidos)
 
+                              continuar = input("\nDeseja editar outro campo? (s/n): ").strip().lower()
+                              if continuar in ["s", "sim"]:
+                                    continue
+                              elif continuar in ["n", "nao", "não"]:
+                                    input("Pressione Enter para voltar ao menu...")
+                                    break
+                              else:
+                                    print("Entrada inválida. Digite 's' ou 'n'.")
             if escolha == 2:
                   if len(lista_filmes_nao_assistidos) == 0:
                         print("\nNão há filmes não assistidos na lista.")
@@ -226,11 +235,21 @@ Escolha uma opção:
                         input("Pressione Enter para continuar...")
                         continue
                   else:
-                        utils.listar_filmes("não assistidos", lista_filmes_nao_assistidos)
-                        print()
-                        input("Pressione Enter para continuar...")
-                        print()
-                        utils.editar_filme(lista_filmes_nao_assistidos)
+                        while True:
+                              utils.listar_filmes("não assistidos", lista_filmes_nao_assistidos)
+                              print()
+                              input("Pressione Enter para continuar...")
+                              print()
+                              utils.editar_filme(lista_filmes_nao_assistidos)
+
+                              continuar = input("\nDeseja editar outro campo? (s/n): ").strip().lower()
+                              if continuar in ["s", "sim"]:
+                                    continue
+                              elif continuar in ["n", "nao", "não"]:
+                                    input("Pressione Enter para voltar ao menu...")
+                                    break
+                              else:
+                                    print("Entrada inválida. Digite 's' ou 'n'.")
 
       elif opcao == "6":
             print("\n   Editando série...")
@@ -244,7 +263,21 @@ Escolha uma opção:
                         input("Pressione Enter para continuar...")
                         continue
                   else:
-                        pass
+                        while True:
+                              utils.listar_series("não assistidas", lista_series_assistidas)
+                              print()
+                              input("Pressione Enter para continuar...")
+                              print()
+                              utils.editar_serie(lista_series_assistidas)
+
+                              continuar = input("\nDeseja editar outro campo? (s/n): ").strip().lower()
+                              if continuar in ["s", "sim"]:
+                                    continue
+                              elif continuar in ["n", "nao", "não"]:
+                                    input("Pressione Enter para voltar ao menu...")
+                                    break
+                              else:
+                                    print("Entrada inválida. Digite 's' ou 'n'.")
 
             if escolha == 2:
                   if len(lista_series_nao_assistidas) == 0:
@@ -253,7 +286,21 @@ Escolha uma opção:
                         input("Pressione Enter para continuar...")
                         continue
                   else:
-                        pass
+                        while True:
+                              utils.listar_series("não assistidas", lista_series_nao_assistidas)
+                              print()
+                              input("Pressione Enter para continuar...")
+                              print()
+                              utils.editar_serie(lista_series_nao_assistidas)
+
+                              continuar = input("\nDeseja editar outro campo? (s/n): ").strip().lower()
+                              if continuar in ["s", "sim"]:
+                                    continue
+                              elif continuar in ["n", "nao", "não"]:
+                                    input("Pressione Enter para voltar ao menu...")
+                                    break
+                              else:
+                                    print("Entrada inválida. Digite 's' ou 'n'.")
 
       elif opcao == "7":
             print("\n   Removendo filme...")
