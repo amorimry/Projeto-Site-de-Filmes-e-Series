@@ -45,12 +45,15 @@ def adicionar_filme():
         else:
             break
     while True:
-        ano = input("Digite o ano de lançamento do filme: ")
-        if not ano.isdigit() or len(ano) != 4:
+        try:
+            ano = input("Digite o ano de lançamento do filme: ")
+            if not ano.isdigit() or len(ano) != 4 :
+                print("Ano inválido. Por favor, digite um ano válido com 4 dígitos.")
+                continue
+            else:
+                break
+        except ValueError:
             print("Ano inválido. Por favor, digite um ano válido com 4 dígitos.")
-            continue
-        else:
-            break
     while True:
         duracao = input("Digite a duração do filme (em minutos): ")
         if not duracao.isdigit():

@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site de Filmes e Séries</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --muted:#93a4c7;
+      --text:#e8eeff;
+      --primary:#6ea8fe;
+      --good:#2dd4bf;
+      --bad:#fb7185;
+      --border: rgba(255,255,255,.10);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 700px at 15% 0%, rgba(110,168,254,.18), transparent 45%),
+                  radial-gradient(1000px 600px at 90% 10%, rgba(45,212,191,.15), transparent 50%),
+                  var(--bg);
+      color:var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      line-height:1.35;
+    }
+    header{
+      padding:28px 18px;
+      text-align:center;
+      border-bottom:1px solid var(--border);
+      background: rgba(255,255,255,.02);
+    }
+    header h1{margin:0 0 6px 0; font-size: clamp(1.4rem, 3vw, 2rem);}
+    header p{margin:0; color:var(--muted)}
+
+    main{max-width:1100px; margin:0 auto; padding:22px 14px 40px;}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+    }
+    @media (min-width: 900px){
+      .grid{grid-template-columns: 1fr 1fr;}
+    }
+
+    .panel{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:14px;
+    }
+
+    .panel-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:12px;
+    }
+    .panel-title h2{margin:0; font-size:1.1rem;}
+    .chip{
+      font-size:.85rem;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--muted);
+      background: rgba(255,255,255,.02);
+    }
+
+    .cards{display:grid; grid-template-columns: 1fr; gap:12px;}
+    @media (min-width: 600px){
+      .cards{grid-template-columns: 1fr 1fr;}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:14px;
+      min-height: 160px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .card-top{display:flex; align-items:flex-start; justify-content:space-between; gap:10px;}
+    .title{font-weight:700; font-size:1rem; margin:0;}
+    .meta{color:var(--muted); font-size:.92rem;}
+    .row{display:flex; gap:10px; flex-wrap:wrap;}
+    .tag{
+      font-size:.82rem;
+      padding:5px 8px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--muted);
+      background: rgba(255,255,255,.02);
+    }
+
+    .badge{
+      font-size:.82rem;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      white-space:nowrap;
+    }
+    .badge.good{background: rgba(45,212,191,.12); color: #5eead4; border-color: rgba(45,212,191,.35)}
+    .badge.bad{background: rgba(251,113,133,.12); color: #fda4af; border-color: rgba(251,113,133,.35)}
+
+    .desc{color:var(--text); margin:0; font-size:.95rem;}
+    .footer{color:var(--muted); font-size:.86rem; margin-top:auto;}
+
+    .empty{color:var(--muted); padding:10px 0;}
+
+    a{color:inherit}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bem-vindo ao seu site de organização de filmes e séries</h1>
+    <p>Confira as listas abaixo.</p>
+  </header>
+
+  <main>
+    <section class="grid">
+      <div class="panel">
+        <div class="panel-title">
+          <h2>📽️ Filmes assistidos</h2>
+          <span class="chip">Clique para ver detalhes no Python (opcional)</span>
+        </div>
+        <div class="cards" id="filmes-assistidos">
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Interestelar</p>
+                <div class="meta">2014 • Ficção Científica</div>
+              </div>
+              <span class="badge good">Assistido: Sim</span>
+            </div>
+            <div class="row">
+              <span class="tag">Duração: 169 min</span>
+            </div>
+            <p class="desc">Astronautas viajam pelo espaço em busca de um novo lar para a humanidade.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Clube da Luta</p>
+                <div class="meta">1999 • Drama</div>
+              </div>
+              <span class="badge good">Assistido: Sim</span>
+            </div>
+            <div class="row">
+              <span class="tag">Duração: 139 min</span>
+            </div>
+            <p class="desc">Um homem insatisfeito cria um clube secreto de lutas.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Vingadores: Ultimato</p>
+                <div class="meta">2019 • Ação</div>
+              </div>
+              <span class="badge good">Assistido: Sim</span>
+            </div>
+            <div class="row">
+              <span class="tag">Duração: 181 min</span>
+            </div>
+            <p class="desc">Os heróis enfrentam Thanos em sua batalha final.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">O Rei Leão</p>
+                <div class="meta">1994 • Animação</div>
+              </div>
+              <span class="badge good">Assistido: Sim</span>
+            </div>
+            <div class="row">
+              <span class="tag">Duração: 88 min</span>
+            </div>
+            <p class="desc">Simba enfrenta desafios para assumir o trono.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Matrix</p>
+                <div class="meta">1999 • Ficção Científica</div>
+              </div>
+              <span class="badge good">Assistido: Sim</span>
+            </div>
+            <div class="row">
+              <span class="tag">Duração: 136 min</span>
+            </div>
+            <p class="desc">Um programador descobre que vive em uma simulação.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <h2>🎞️ Filmes não assistidos</h2>
+          <span class="chip">Lista pronta</span>
+        </div>
+        <div class="cards" id="filmes-nao-assistidos">
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Oppenheimer</p>
+                <div class="meta">2023 • Drama</div>
+              </div>
+              <span class="badge bad">Assistido: Não</span>
+            </div>
+            <div class="row">
+              <span class="tag">Duração: 180 min</span>
+            </div>
+            <p class="desc">A história do criador da bomba atômica.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Duna: Parte Dois</p>
+                <div class="meta">2024 • Ficção Científica</div>
+              </div>
+              <span class="badge bad">Assistido: Não</span>
+            </div>
+            <div class="row">
+              <span class="tag">Duração: 166 min</span>
+            </div>
+            <p class="desc">Paul Atreides continua sua jornada em Arrakis.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Parasita</p>
+                <div class="meta">2019 • Suspense</div>
+              </div>
+              <span class="badge bad">Assistido: Não</span>
+            </div>
+            <div class="row">
+              <span class="tag">Duração: 132 min</span>
+            </div>
+            <p class="desc">Uma família pobre se infiltra na vida de uma família rica.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Blade Runner 2049</p>
+                <div class="meta">2017 • Ficção Científica</div>
+              </div>
+              <span class="badge bad">Assistido: Não</span>
+            </div>
+            <div class="row">
+              <span class="tag">Duração: 164 min</span>
+            </div>
+            <p class="desc">Um novo blade runner descobre um segredo perigoso.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Whiplash</p>
+                <div class="meta">2014 • Drama</div>
+              </div>
+              <span class="badge bad">Assistido: Não</span>
+            </div>
+            <div class="row">
+              <span class="tag">Duração: 107 min</span>
+            </div>
+            <p class="desc">Um jovem baterista busca a perfeição.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" style="margin-top:18px;">
+      <div class="panel">
+        <div class="panel-title">
+          <h2>📺 Séries assistidas</h2>
+          <span class="chip">Prontas para maratonar</span>
+        </div>
+        <div class="cards" id="series-assistidas">
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Breaking Bad</p>
+                <div class="meta">2008 • Drama</div>
+              </div>
+              <span class="badge good">Assistido: Sim</span>
+            </div>
+            <div class="row">
+              <span class="tag">Temporadas: 5</span>
+            </div>
+            <p class="desc">Um professor de química entra para o tráfico de drogas.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Dark</p>
+                <div class="meta">2017 • Ficção Científica</div>
+              </div>
+              <span class="badge good">Assistido: Sim</span>
+            </div>
+            <div class="row">
+              <span class="tag">Temporadas: 3</span>
+            </div>
+            <p class="desc">Mistérios envolvendo viagens no tempo.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Stranger Things</p>
+                <div class="meta">2016 • Suspense</div>
+              </div>
+              <span class="badge good">Assistido: Sim</span>
+            </div>
+            <div class="row">
+              <span class="tag">Temporadas: 5</span>
+            </div>
+            <p class="desc">Crianças enfrentam criaturas de outra dimensão.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">The Office</p>
+                <div class="meta">2005 • Comédia</div>
+              </div>
+              <span class="badge good">Assistido: Sim</span>
+            </div>
+            <div class="row">
+              <span class="tag">Temporadas: 9</span>
+            </div>
+            <p class="desc">O cotidiano de um escritório cheio de situações engraçadas.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Arcane</p>
+                <div class="meta">2021 • Animação</div>
+              </div>
+              <span class="badge good">Assistido: Sim</span>
+            </div>
+            <div class="row">
+              <span class="tag">Temporadas: 2</span>
+            </div>
+            <p class="desc">Conflitos entre Piltover e Zaun.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <h2>🧩 Séries não assistidas</h2>
+          <span class="chip">Fila de espera</span>
+        </div>
+        <div class="cards" id="series-nao-assistidas">
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">The Last of Us</p>
+                <div class="meta">2023 • Drama</div>
+              </div>
+              <span class="badge bad">Assistido: Não</span>
+            </div>
+            <div class="row">
+              <span class="tag">Temporadas: 2</span>
+            </div>
+            <p class="desc">Sobreviventes enfrentam um mundo devastado por um fungo.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">House of the Dragon</p>
+                <div class="meta">2022 • Fantasia</div>
+              </div>
+              <span class="badge bad">Assistido: Não</span>
+            </div>
+            <div class="row">
+              <span class="tag">Temporadas: 2</span>
+            </div>
+            <p class="desc">A guerra civil da Casa Targaryen.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">Severance</p>
+                <div class="meta">2022 • Suspense</div>
+              </div>
+              <span class="badge bad">Assistido: Não</span>
+            </div>
+            <div class="row">
+              <span class="tag">Temporadas: 2</span>
+            </div>
+            <p class="desc">Funcionários têm suas memórias divididas entre trabalho e vida pessoal.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">The Bear</p>
+                <div class="meta">2022 • Drama</div>
+              </div>
+              <span class="badge bad">Assistido: Não</span>
+            </div>
+            <div class="row">
+              <span class="tag">Temporadas: 4</span>
+            </div>
+            <p class="desc">Um chef tenta salvar o restaurante da família.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div>
+                <p class="title">One Piece</p>
+                <div class="meta">1999 • Anime</div>
+              </div>
+              <span class="badge bad">Assistido: Não</span>
+            </div>
+            <div class="row">
+              <span class="tag">Temporadas: 22</span>
+            </div>
+            <p class="desc">Luffy reúne sua tripulação em busca do One Piece.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
+
